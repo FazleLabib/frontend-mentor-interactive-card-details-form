@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
+:root {
+    /* ## Colors */
+
+    /* ### Primary */
+
+    /* (active input border) */
+    --linear-gradient-from: hsl(249, 99%, 64%);
+    --linear-gradient-to: hsl(278, 94%, 30%);
+
+    /* (input errors) */
+    --red: hsl(0, 100%, 66%);
+
+
+    /* ### Neutral */
+
+    --white: hsl(0, 0%, 100%);
+    --light-grayish-violet: hsl(270, 3%, 87%);
+    --dark-grayish-violet: hsl(279, 6%, 55%);
+    --very-dark-violet: hsl(278, 68%, 11%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image: url(./images/bg-main-desktop.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: auto 120%;
+
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.card-front,
+.card-back {
+    position: relative;
+
+}
+
+.card-front {
+    right: 7.5rem;
+}
+.card-front-bg,
+.card-back-bg {
+    box-shadow: 2px 2px 20px rgb(0, 0, 0, 0.15);
+    border-radius: 0.65rem;
+}
+
+.card-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.card-content h2, .card-content p {
+    color: var(--white);
+}
+
+.section-one {
+    padding-top: 3.5rem;
+    padding-bottom: 1.5rem;
+}
+.section-one h2 {
+    font-weight: 500;
+    font-size: 1.7rem;
+    letter-spacing: 0.25rem;
+}
+
+.section-two {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.section-two p {
+    color: var(--light-grayish-violet);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+
+}
+
+.card-cvc {
+    color: red;
+    font-size: rem;
+    padding-top: 4.8rem;
+    padding-left: 21rem;
+}
+
+form {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+form .input{
+    display: flex;
+    flex-direction: column;
+}
+
+form .exp-cvc {
+    display: flex;
+    gap: 1rem;
+}
+
+form .month-year {
+    display: flex;
+}
+
+form label {
+    color: var(--very-dark-violet);
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-size: 0.85rem;
+    padding-bottom: 0.25rem;
+}
+
+input {
+    width: 26rem;
+    padding: 1rem;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--light-grayish-violet);
+    transition: border .2s ease-in;
+}
+
+.invalid {
+    border: 1px solid var(--red);
+}
+
+input[type = "text"]:focus, input[type = "text"]:active, input[type = "text"]:hover {
+    outline: none;
+    border: 1px solid transparent;
+    background-image: linear-gradient(var(--white), var(--white)), 
+                      linear-gradient(to right, var(--linear-gradient-from), var(--linear-gradient-to));
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+
+.month-year {
+    gap: 0.65rem;
+}
+
+.month-year input {
+    width: 4rem;
+}
+
+input[name="cvc"] {
+    width: 12rem;
+}
+
+::placeholder {
+    color: var(--dark-grayish-violet);
+}
+
+.btn{
+    padding: 1rem;
+    font-size: 0.85rem;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    background-color: var(--very-dark-violet);
+    color: var(--white);
+    transition: opacity 0.2s ease-in;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.success {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.success img {
+    width: 6rem;
+    padding-bottom: 1rem;
+}
+
+.success h1{
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+    font-weight: 500;
+}
+
+.success p{
+    color: var(--dark-grayish-violet);
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.empty, .format, .format-month {
+    display: none;
+    font-size: 0.85rem;
+    padding-top: 0.5rem;
+    color: var(--red);
+}
+
+footer {
+    position: absolute;
+    bottom: 1rem;
+}
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
