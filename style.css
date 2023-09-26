@@ -38,8 +38,6 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-size: auto 120%;
-
-    font-family: 'Space Grotesk', sans-serif;
 }
 
 .container {
@@ -59,12 +57,12 @@ body {
 .card-front,
 .card-back {
     position: relative;
-
 }
 
 .card-front {
     right: 7.5rem;
 }
+
 .card-front-bg,
 .card-back-bg {
     box-shadow: 2px 2px 20px rgb(0, 0, 0, 0.15);
@@ -110,14 +108,12 @@ body {
 }
 
 .card-cvc {
-    color: red;
-    font-size: rem;
     padding-top: 4.8rem;
     padding-left: 21rem;
 }
 
 form {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
@@ -189,7 +185,7 @@ input[name="cvc"] {
     border-radius: 0.5rem;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 28rem;
     background-color: var(--very-dark-violet);
     color: var(--white);
     transition: opacity 0.2s ease-in;
@@ -200,7 +196,7 @@ input[name="cvc"] {
 }
 
 .success {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -222,6 +218,7 @@ input[name="cvc"] {
     color: var(--dark-grayish-violet);
     font-weight: 500;
     font-size: 1.25rem;
+    padding-bottom: 2rem;
 }
 
 .empty, .format, .format-month {
@@ -242,4 +239,90 @@ footer {
 
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+
+@media screen and (max-width:500px) {
+    body {
+        flex-direction: column;
+        background-image: url(./images/bg-main-mobile.png);
+        background-size: 100% auto;
+    }
+
+    .container {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .cards {
+        width: 70%;
+        gap: 0;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .card-content {
+        padding: 1.5rem;
+    }
+
+    .card-front {
+        z-index: 2;
+        right: 0;
+        right: 3rem;
+        top: 4.5rem;
+    }
+
+    .card-back {
+        z-index: 1;
+        left: 3rem;
+        bottom: 11rem;
+    }
+
+    .card-logo {
+        width: 20%;
+    }
+    
+    .section-one {
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
+
+    .section-one h2 {
+        font-size: 0.85rem;
+    }
+    
+    .section-two p, .card-cvc {
+        font-size: 0.75rem;
+    }
+    
+    .card-cvc {
+        padding-top: 2.65rem;
+        padding-left: 12rem;
+    }
+
+    input {
+        width: 21rem;
+    }
+
+    .month-year input {
+        width: 3rem;
+    }
+    
+    input[name="cvc"] {
+        width: 9rem;
+    }
+
+    .btn{
+        width: 23rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .empty, .format, .format-month {
+        font-size: 0.75rem;
+    }
+
+    footer {
+        position: initial;
+    }
 }
