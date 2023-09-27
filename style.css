@@ -83,6 +83,7 @@ body {
     color: var(--white);
 }
 
+
 .section-one {
     padding-top: 3.5rem;
     padding-bottom: 1.5rem;
@@ -105,6 +106,10 @@ body {
     text-transform: uppercase;
     letter-spacing: 0.15rem;
 
+}
+
+.card-expiry {
+    display: flex;
 }
 
 .card-cvc {
@@ -294,10 +299,6 @@ footer {
     
     .section-two p, .card-cvc {
         font-size: 0.75rem;
-    }
-    
-    .card-expiry {
-        display: flex;
     }
     
     .card-cvc {
