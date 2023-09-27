@@ -296,6 +296,10 @@ footer {
         font-size: 0.75rem;
     }
     
+    .card-expiry {
+        display: flex;
+    }
+    
     .card-cvc {
         padding-top: 2.65rem;
         padding-left: 12rem;
