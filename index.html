@@ -25,11 +25,15 @@
           <div class="card-content">
             <img class="card-logo" src="./images/card-logo.svg" alt="A filled circle followed with a hollow circle.">
             <div class="section-one">
-              <h2 class="card-number">0000 0000 0000 0000</h2>
+              <h2 id="card-number">0000 0000 0000 0000</h2>
             </div>
             <div class="section-two">
-              <p class="cardholder-name">Jane Appleseed</p>
-              <p class="card-expiry">00/00</p>
+              <p id="cardholder-name">Jane Appleseed</p>
+              <div class="card-expiry">
+                <p id="card-month">00</p>
+                <p>/</p>
+                <p id="card-year">00</p>
+              </div>
             </div>
           </div>
         </div>
@@ -37,44 +41,45 @@
         <div class="card-back">
           <img class="card-back-bg card" src="./images/bg-card-back.png" alt="Backside of card">
           <div class="card-content">
-            <p class="card-cvc">000</p>
+            <p id="show-cvc" class="card-cvc">000</p>
           </div>
         </div>
       </div>
     
-      <div class="form">
-        <form action="">
+      <div class="form" id="form">
+        <form action="#" id="form-input">
 
           <div class="input" id="input-name">
             <label for="name">Cardholder Name</label>
-            <input type="text" name="name" id="name" placeholder="e.g. Jane Appleseed">
+            <input type="text" name="name" id="name" placeholder="e.g. Jane Appleseed" maxlength="21">
             <p class="empty" id="empty-cname">Can't be blank</p>
+            <p class="format" id="format-cname">Wrong format, alphabets only</p>
           </div>
 
           <div class="input" id="input-number">
             <label for="number">Card Number</label>
-            <input type="text" name="number" id="number" placeholder="e.g. 1234 5678 9123 0000">
+            <input type="text" name="number" id="number" placeholder="e.g. 1234 5678 9123 0000" maxlength="16">
             <p class="empty" id="empty-cnum">Can't be blank</p>
-            <p class="format">Wrong format, numbers only</p>
+            <p class="format" id="format-cnum">Wrong format, numbers only</p>
           </div>
           
           <div class="exp-cvc">
             <div class="input" id="input-exp">
               <label for="expiry">Exp. Date (MM/YY)</label>
               <div class="month-year">
-                <input type="text" name="expMonth" id="expMonth" placeholder="MM">
-                <input type="text" name="expYear" id="expYear" placeholder="YY">
+                <input type="text" name="exp-month" id="exp-month" placeholder="MM" maxlength="2">
+                <input type="text" name="exp-year" id="exp-year" placeholder="YY" maxlength="2">
               </div>
               <p class="empty" id="empty-exp">Can't be blank</p>
-              <p class="format">Wrong format, numbers only</p>
-              <p class="format-month">Invalid month</p>
+              <p class="format" id="format-exp">Wrong format, numbers only</p>
+              <p class="format-month" id="invalid-month">Invalid month</p>
             </div>
           
             <div class="input" id="input-cvc">
               <label for="cvc">CVC</label>
-              <input type="text" name="cvc" id="cvc" placeholder="e.g. 123">
+              <input type="text" name="cvc" id="cvc" placeholder="e.g. 123" maxlength="3">
               <p class="empty" id="empty-cvc">Can't be blank</p>
-              <p class="format">Wrong format, numbers only</p>
+              <p class="format" id="format-cvc">Wrong format, numbers only</p>
             </div>
           </div>
           
@@ -82,12 +87,12 @@
 
         </form>
       
-        <div class="success">
+        <div class="success" id="success">
           <!-- Completed state start -->
           <img class="icon-complete" src="./images/icon-complete.svg" alt="Icon of a tick mark">
           <h1>Thank you!</h1>
           <p>We've added your card details</p>
-          <button class="btn">Continue</button>
+          <button class="btn" id="confirm">Continue</button>
         </div>
 
       </div>
@@ -100,5 +105,6 @@
       Coded by <a href="https://github.com/FazleLabib">Fazle Labib</a>.
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
