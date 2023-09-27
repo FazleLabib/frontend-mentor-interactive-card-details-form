@@ -124,9 +124,11 @@ function checkErrors() {
     if (!emptyFlags[0]) {
         if (alphaPattern.test(nameValue)) {
             formatName.style.display = 'block';
+            username.classList.add("invalid");
             invalidName = true;
         } else {
             formatName.style.display = 'none';
+            username.classList.remove("invalid");
             invalidName = false;
         }
     } else{
@@ -136,9 +138,11 @@ function checkErrors() {
     if (!emptyFlags[1]) {
         if (!numPattern.test(numberValue)) {
             formatNum.style.display = 'block';
+            number.classList.add("invalid");
             invalidNum = true;
         } else {
             formatNum.style.display = 'none';
+            number.classList.remove("invalid");
             invalidNum = false;
         }
     } else{
@@ -150,15 +154,18 @@ function checkErrors() {
             if (!numPattern.test(monthValue)) {
                 formatExp.style.display = 'block';
                 invalidExp.style.display = 'none';
+                expMonth.classList.add("invalid");
                 invalidMonth = true;
             } else {
                 formatExp.style.display = 'none';
                 invalidExp.style.display = 'block';
+                expMonth.classList.add("invalid");
                 invalidMonth = true;
             }
         } else {
             formatExp.style.display = 'none';
             invalidExp.style.display = 'none';
+            expMonth.classList.remove("invalid");
             invalidMonth = false;
         }
     } else {
@@ -169,9 +176,11 @@ function checkErrors() {
     if (!emptyFlags[3]) {
         if (!numPattern.test(yearValue)) {
             formatExp.style.display = 'block';
+            expYear.classList.add("invalid");
             invalidYear = true;
         } else {
             formatExp.style.display = 'none';
+            expYear.classList.remove("invalid");
             invalidYear = false;
         }
     } else {
@@ -182,9 +191,11 @@ function checkErrors() {
         console.log("entered");
         if (!numPattern.test(cvcValue)) {
             formatCVC.style.display = 'block';
+            cvc.classList.add("invalid");
             invalidCVC = true;
         } else {
             formatCVC.style.display = 'none';
+            cvc.classList.remove("invalid");
             invalidCVC = false;
         }        
     } else {
@@ -200,20 +211,23 @@ function checkErrors() {
 // Checks if input field is empty
 function checkEmpty(nameValue, numberValue, monthValue, yearValue, cvcValue) {
 
-    let nameFlag = displayEmptyMessage(emptyName, nameValue === "");
-    let numFlag = displayEmptyMessage(emptyNumber, numberValue === "");
-    let expiryFlag = displayEmptyMessage(emptyExp, monthValue === "" || yearValue === "");
-    let cvcFlag = displayEmptyMessage(emptyCVC, cvcValue === "");
+    let nameFlag = displayEmptyMessage(emptyName, nameValue === "", username);
+    let numFlag = displayEmptyMessage(emptyNumber, numberValue === "", number);
+    let expiryMonth = displayEmptyMessage(emptyExp, monthValue === "", expMonth);
+    let expiryYear = displayEmptyMessage(emptyExp, yearValue === "", expYear);
+    let cvcFlag = displayEmptyMessage(emptyCVC, cvcValue === "", cvc);
 
-    return [nameFlag, numFlag, expiryFlag, expiryFlag, cvcFlag];
+    return [nameFlag, numFlag, expiryMonth, expiryYear, cvcFlag];
 }
 
-function displayEmptyMessage(emptyElement, isEmpty) {
+function displayEmptyMessage(emptyElement, isEmpty, inputId) {
     if (isEmpty) {
         emptyElement.style.display = 'block';
+        inputId.classList.add("invalid");
         return true;
     } else {
         emptyElement.style.display = 'none';
+        inputId.classList.remove("invalid");
         return false;
     }
 }
